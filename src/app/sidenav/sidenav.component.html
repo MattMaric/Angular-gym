@@ -1,0 +1,57 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed':''">
+    <div class="logo-container">        
+      <button class="logo" (click)="toggleCollapse()" ><i class="fa fa-bars"></i></button>
+        <div class="logo-text nowrap_text" @fadeInOut *ngIf="collapsed">
+          <span *ngIf="gymName;else dataBaseName"> {{gymName}} </span>
+          <ng-template #dataBaseName> {{firstGymName}} </ng-template>
+        </div>
+        <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+            <i class="fa fa-times close-icon"></i>
+        </button>
+    </div>
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="sidenav-nav-link" routerLink="/">
+            <i class="sidenav-link-icon fa fa-home"></i>
+            <span class="sidenav-link-text"  @fadeInOut *ngIf="collapsed">Dashboard</span>
+        </a>
+      </li>
+     <li class="sidenav-nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="sidenav-nav-link" routerLink="/membership">
+            <i class="sidenav-link-icon fa fa-users"></i>
+            <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">Membership</span>
+        </a>
+      </li>
+      <li class="sidenav-nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" id="listLarge">
+        <a class="sidenav-nav-link link_different" (click)="openList()">
+            <i class="sidenav-link-icon fa fa-user-circle"></i>
+            <span  class="sidenav-link-text nowrap_text" @fadeInOut *ngIf="collapsed">Member Management</span>
+        </a>
+        <ul *ngIf="list" class="list_under">
+          <li class="sidenav-nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a class="sidenav-nav-link" routerLink="/members" @fadeInOut *ngIf="collapsed">
+                <i class="sidenav-link-icon fa fa-id-card"></i>
+                <span class="sidenav-link-text">Members</span>
+            </a>
+          </li>
+          <li class="sidenav-nav-item sidenav_nav_item_different" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a class="sidenav-nav-link"  routerLink="/stuff"  @fadeInOut *ngIf="collapsed">
+               <i class="sidenav-link-icon fa fa-cubes"></i>
+                <span class="sidenav-link-text nowrap_text">Staff Member</span>
+            </a>
+          </li>
+        </ul>      
+      <li class="sidenav-nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="sidenav-nav-link" routerLink="/class-schedule">
+            <i class="sidenav-link-icon fa fa-calendar"></i>
+            <span class="sidenav-link-text nowrap_text" @fadeInOut *ngIf="collapsed" >Class Schedule</span>
+        </a>
+      </li>
+      <li class="sidenav-nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="sidenav-nav-link" routerLink="/settings">
+            <i class="sidenav-link-icon fa fa-gear"></i>
+            <span class="sidenav-link-text nowrap_text" @fadeInOut *ngIf="collapsed">Settings</span>
+        </a>
+      </li>
+    </ul>
+</div>

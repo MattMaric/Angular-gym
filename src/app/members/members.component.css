@@ -1,0 +1,118 @@
+.container-fluid {
+    background-color:white ;
+    padding-top: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+.container_back {
+    background-color:rgb(168, 59, 59);
+    border-radius: 3%;
+    width: 100%;
+    height: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;   
+}
+
+.container {
+    background-color:white;
+    min-height:fit-content;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    overflow-x: auto !important;
+    margin: auto;
+}
+
+th, td {
+    width: 1%;
+}
+
+th {
+    background-color: white !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+tr:nth-child(odd) {
+    background-color: rgb(225, 225, 225);
+}
+
+.mat-grey {
+    background-color: rgb(225, 225, 225);
+}
+
+.mat-blue {
+    margin-right: 5px;
+    background-color: rgb(59, 148, 236);
+}
+
+.fa-edit, .fa-trash {
+    color: white;
+}
+
+#members-heading {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+#add-member-div {
+    justify-content: end;
+    text-align: end;
+}
+
+mat-form-field {
+    width: 20%;
+    padding-right: 12px;
+}
+
+.mat-elevation-z8 {
+    overflow: auto;
+    max-width: 100%;
+    max-height: 500px;
+}
+img {
+    padding: 5px;
+}
+@media (max-width: 767px) {
+    #add-member-div {
+        justify-content: start;
+        text-align: start;
+        margin-top: 10px
+    }
+    #members-heading {
+        font-size: 26px !important;
+    }
+}
+@media (max-width: 1145px) {
+    th {
+        display: none;
+    }
+    td {
+        display: block;
+        width: 100%;
+        text-align: right;
+        padding-right: 15px !important;
+        position: relative;
+    }
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+    #buttons-td {
+        margin-bottom: 15px;
+    }
+    button {
+        height: 20px !important;
+        line-height: 16px !important;
+    }   
+}

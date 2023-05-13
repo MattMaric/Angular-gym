@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="signup_first_div">
+        <br>
+    <div class="container">
+        <h1 class="heading_h2 text-center">Sign Up</h1>   
+            <form id="signup_form" [formGroup]="signupForm" autocomplete="off">
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput  id="name" formControlName="name" placeholder="Name">
+                    <span *ngIf="!signupForm.controls['name'].valid && signupForm.controls['name'].touched " class="form_validation g-font-size-10px">Name is required!</span> 
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Surname</mat-label>
+                    <input matInput id="surname" formControlName="surname" placeholder="Surname">
+                    <span *ngIf="!signupForm.controls['surname'].valid && signupForm.controls['surname'].touched " class="form_validation g-font-size-10px">Surname is required!</span> 
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" id="email" formControlName="email" placeholder="Email" #email> 
+                    <span *ngIf="signupForm.controls['email'].touched && signupForm.controls['email'].value ===''" class="form_validation g-font-size-10px">Email is required!</span> 
+                    <span *ngIf="!signupForm.controls['email'].valid && signupForm.controls['email'].value" class="form_validation g-font-size-10px">Write valid email!</span>       
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone</mat-label>
+                    <input matInput type="phone" id="phone" formControlName="phone" placeholder="Phone">
+                    <span *ngIf="signupForm.controls['phone'].touched && signupForm.controls['phone'].value ===''" class="form_validation g-font-size-10px">Phone is required!</span>
+                    <span *ngIf="!signupForm.controls['phone'].valid && signupForm.controls['phone'].value" class="form_validation g-font-size-10px">Phone must has 10 numbers!</span>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>User name</mat-label>
+                    <input matInput type="text" id="userName" formControlName="userName" placeholder="User name">
+                    <span *ngIf="!signupForm.controls['userName'].valid && signupForm.controls['userName'].touched " class="form_validation g-font-size-10px">User name is required!</span>  
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" id="password" formControlName="password" placeholder="Password" #password> 
+                    <span *ngIf="signupForm.controls['password'].touched && signupForm.controls['password'].value ===''" class="form_validation g-font-size-10px">Password is required!</span> 
+                    <span *ngIf="!signupForm.controls['password'].valid && signupForm.controls['password'].value" class="form_validation g-font-size-10px">Write minimum six characters!</span>       
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Confirm password</mat-label>
+                    <input matInput type="password" id="confirmPasword" formControlName="confirmPassword" placeholder="Confirm password"> 
+                    <span *ngIf="signupForm.controls['confirmPassword'].touched && signupForm.controls['confirmPassword'].value ===''" class="form_validation g-font-size-10px">Confirm password is required!</span> 
+                    <span *ngIf="!signupForm.controls['confirmPassword'].valid && signupForm.controls['confirmPassword'].value" class="form_validation g-font-size-10px">Write minimum six characters!</span>       
+                </mat-form-field>            
+                    <button  class="btn col-sm-12 text-center logIn_button btn-dark" type="submit" (click)="authService.SignUp(email.value, password.value)"[disabled]="!signupForm.valid">Sign Up</button>  
+            </form>
+        </div>    
+       <br>
+    </div>    
+</div>   

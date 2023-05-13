@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  <div class="container_back">
+    <div class="container">            
+        <div class="row">
+          <div class="col-md-12 col-sm-12 text-start">
+              <h1 class="font_weight_large">CLASS SCHEDULE</h1>  
+          </div>
+              <hr>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-lg-9 col-sm-12 text-start p-2">      
+                <button mat-raised-button color= "basic" class="button_add_stuff m-1 font_size_14" (click)="openDialogAddNewClassForm()">
+                + Add new class
+                </button>
+              </div>                    
+              <div class="col-md-3 col-sm-12 text-end">
+                <mat-form-field fxFlax="40%" class="m-4" appearance="standard" class="font_size_14 width_filter"><mat-label class="font_size_14">Filter</mat-label><input  matInput type="text" (keyup)="applyFilter($event)" placeholder="filter the initial word or number"></mat-form-field> 
+              </div>
+          </div>
+        </div>             
+        <div class="mat-elevation-z8 m-1">
+            <table  [dataSource]="dataSource"  mat-table  class="table-condesed table_responsive" matSort id="dateTablesExample">
+              <!--Class Name Column -->
+              <ng-container matColumnDef="className">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by className" class="mat_tab_th p-2">Class Name </th>
+                <td mat-cell *matCellDef="let row" class="p-2" data-label="Class Name"> {{row.className}} </td>
+              </ng-container>
+              <!-- Trainer Name Column -->
+              <ng-container matColumnDef="trainerName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by trainerName" class="mat_tab_th p-2">Trainer Name </th>
+                <td mat-cell *matCellDef="let row" class="p-2" data-label="Trainer Name"> {{row.trainerName}}</td>
+              </ng-container>
+              <!-- Start Time Column -->
+              <ng-container matColumnDef="startTime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by startTime" class="mat_tab_th p-2">Start Time</th>
+                <td mat-cell *matCellDef="let row" class="p-2" data-label="Start Time"> {{row.startTime}}</td>
+              </ng-container>
+              <!-- End Time Column -->
+              <ng-container matColumnDef="endTime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by endTime" class="mat_tab_th p-2" >End Time</th>
+                <td mat-cell *matCellDef="let row" class="p-2" data-label="End Time"> {{row.endTime}} </td> 
+              </ng-container>  
+              <!-- Location Column -->
+              <ng-container matColumnDef="location">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by location" class="mat_tab_th p-2">Location</th>
+                <td mat-cell *matCellDef="let row" class="p-2" data-label="Location"> {{row.location}} </td>
+              </ng-container> 
+              <!-- Date Column -->
+              <ng-container matColumnDef="date" class="height">
+                <th mat-header-cell *matHeaderCellDef  mat-sort-header sortActionDescription="Sort by date" class="mat_tab_th p-2"> Date </th>
+                <td mat-cell *matCellDef="let row" type="text" class="p-2" data-label="date">{{ row.date | date: "YYYY-MM-dd"  }}</td>
+              </ng-container> 
+              <!-- Action Column -->
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef class="mat_tab_th p-3"> Action </th>
+                <div >
+                <td mat-cell *matCellDef="let row" class="p-3" data-label="Action" id="action_resp">
+                  <button mat-flat-button color="primary" (click)="openDialogEditClassForm(row)" class="button_width m-1"><i class="fa fa-edit"></i></button>
+                  <button mat-flat-button color="warn" (click)="deleteClassRow(row.id)" class="button_width m-1"><i class="fa fa-trash"></i></button>
+                 </td>
+                </div>
+              </ng-container>  
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+              <mat-paginator class="paginator_responsive"
+                [pageSizeOptions]="[5, 10, 20]"
+                [pageSize]="pageSize"
+                [length]="length"
+                showFirstLastButtons 
+                aria-label="Select page of classSchedule ">
+              </mat-paginator>
+        </div>        
+    </div>
+  </div>
+</div>         
+   

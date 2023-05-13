@@ -1,0 +1,23 @@
+.form_validation{
+    color:red;
+}
+.g-font-size-10px{
+    font-size: 10px;
+}
+mat-form-field {
+    width:100%;
+    margin: 1px;
+}
+.heading_h2{
+    font-weight: bolder;
+    border-bottom: 2px solid rgb(168, 59, 59);
+    width: 100%;
+}
+#button_div{
+    text-align: end;
+    justify-content: end;
+}
+.line_top{
+    border-top: 2px solid rgb(168, 59, 59);
+}
+

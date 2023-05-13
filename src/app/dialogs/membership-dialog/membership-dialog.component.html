@@ -1,0 +1,46 @@
+<h2 mat-dialog-title class="heading_h2">{{data.message}}</h2>
+
+<form [formGroup]="membershipForm" autocomplete="off">
+    <fieldset>
+
+      <!-- Membership Name Field -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Membership Name</label>
+        <input type="text" id="name" class="form-control" formControlName="name">
+        <span *ngIf="!membershipForm.controls['name'].valid && membershipForm.controls['name'].touched" style="color: red">
+          Name must be filled.
+        </span>
+      </div>
+
+      <!-- Membership Period Field -->
+      <div class="mb-3">
+        <label for="period" class="form-label">Membership Period</label>
+        <input type="number" id="period" class="form-control" min="1" maxlength="6" formControlName="period">
+        <span *ngIf="!membershipForm.controls['period'].valid && membershipForm.controls['period'].touched" style="color: red">
+          Period must be filled.
+        </span>
+      </div>
+
+      <!-- Membership Price Field -->
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" id="price" class="form-control" min="1" maxlength="6" formControlName="price">
+        <span *ngIf="!membershipForm.controls['price'].valid && membershipForm.controls['price'].touched" style="color: red">
+          Price must be filled.
+        </span>
+      </div>
+
+      <!--IMAGE CHECK-->
+      <div>
+        <img src="{{url}}" width="80px" height="80px"><br><br>
+        <input type="file" (change)="selectFile($event)">
+      </div>
+
+      <div id="buttons-div">
+        <button mat-flat-button color="warn" (click)="closeDialog()">Close</button>
+        <button mat-flat-button color="blue" (click)="addMembership()"
+        [disabled]="!membershipForm.valid">Save</button>
+      </div>
+
+    </fieldset>
+</form>

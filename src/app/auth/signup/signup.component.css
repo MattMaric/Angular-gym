@@ -1,0 +1,42 @@
+.container-fluid{
+    padding-top: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.signup_first_div{
+    background: url('/assets/imgBackLogin/backLogin.jpg');   
+    background-repeat: no-repeat;  
+    background-size: cover;
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+    border: 2px solid rgb(168, 59, 59);
+}
+.container{
+    background-color: white;
+    max-width: 400px; 
+    padding-bottom: 20px;
+}
+::ng-deep .mat-form-field {
+    font-size: 12px; 
+}
+.form_validation{
+    color:red;
+}
+.g-font-size-10px{
+    font-size: 10px;
+}
+mat-form-field {
+    width:100%;
+    height: 50%;
+}
+.heading_h2{
+    font-weight: bolder; 
+}
+#button_div{
+    text-align: end !important;
+    justify-content: end !important;
+}
+.line_top{
+    border-top: 2px solid rgb(168, 59, 59);
+}

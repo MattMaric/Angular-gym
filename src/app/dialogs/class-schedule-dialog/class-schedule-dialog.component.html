@@ -1,0 +1,53 @@
+<div class="container-fluid p-2">
+    <h2 mat-dialog-title class="heading_h2 text-center">{{data.message}}</h2>
+    <div mat-dialog-content>       
+        <form id="addEdit_form" [formGroup]="classForm" autocomplete="off">
+            <mat-form-field appearance="outline">
+                <mat-label>Class Name</mat-label>
+                <input matInput  id="className" formControlName="className" placeholder="Class Name">
+                <span *ngIf="!classForm.controls['className'].valid && classForm.controls['className'].touched " class="form_validation g-font-size-10px">Class name is required!</span> 
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Trainer Name</mat-label>
+                <select matNativeControl  id="trainerName" formControlName="trainerName" name="trainerName">                   
+                    <option *ngFor="let name of coachFromStaffs" [value]="name.name + ' ' + name.surname">
+                {{name.name}} {{name.surname}}
+                </option>
+                </select>               
+                <span *ngIf="classForm.controls['trainerName'].touched && classForm.controls['trainerName'].value ===''" class="form_validation g-font-size-10px">Trainer name is required!</span>
+              </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Start Time</mat-label>
+                <input matInput type="time" id="startTime" formControlName="startTime" placeholder="Start Time">
+                <span *ngIf="classForm.controls['startTime'].touched && classForm.controls['startTime'].value ===''" class="form_validation g-font-size-10px">Start time is required!</span>                
+                <span *ngIf="classForm.controls['startTime'].value && classForm.controls['startTime'].value >= classForm.controls['endTime'].value && classForm.controls['endTime'].value" class="form_validation g-font-size-10px">End time must be greater than Start time</span>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>End Time</mat-label>
+                <input matInput type="time" id="endTime" formControlName="endTime" placeholder="End Time">
+                <span *ngIf="classForm.controls['endTime'].touched && classForm.controls['endTime'].value ===''" class="form_validation g-font-size-10px">End Time is required!</span>  
+                <span *ngIf="classForm.controls['endTime'].value && classForm.controls['startTime'].value >= classForm.controls['endTime'].value" class="form_validation g-font-size-10px">End time must be greater than Start time</span>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Location</mat-label>
+                <input matInput id="location" formControlName="location" placeholder="Location">     
+                <span *ngIf="classForm.controls['location'].touched && classForm.controls['location'].value==='' " class="form_validation g-font-size-10px">Location is required!</span>  
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                    <input matInput  formControlName="date" placeholder="Date" [matDatepicker]="picker">
+                <mat-hint>dd/MM/yyyy</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <span *ngIf="classForm.controls['date'].touched && classForm.controls['date'].value==='' " class="form_validation g-font-size-10px">Date is required!</span>  
+            </mat-form-field>
+            <br>
+            <br> 
+            <div id="button_div" class="line_top col-md-12"> 
+                    <br> 
+                    <button mat-flat-button color="warn" class="m-1" (click)="sendHint()">Close</button>            
+                    <button mat-flat-button color="primary" class="m-1" type="submit"  [disabled]="!classForm.valid" (click)="addOrEdit()">Save</button>       
+            </div>    
+        </form>
+    </div> 
+</div>

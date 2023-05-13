@@ -1,0 +1,46 @@
+<div class="container-fluid p-2">
+    <h2 mat-dialog-title class="heading_h2 text-center">{{data.message}}</h2>
+    <div mat-dialog-content>       
+        <form id="addEdit_form" [formGroup]="stuffForm" autocomplete="off">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput  id="name" formControlName="name" placeholder="Name">
+                <span *ngIf="!stuffForm.controls['name'].valid && stuffForm.controls['name'].touched " class="form_validation g-font-size-10px">Name is required!</span> 
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Surame</mat-label>
+                <input matInput id="surname" formControlName="surname" placeholder="Surname">
+                <span *ngIf="!stuffForm.controls['surname'].valid && stuffForm.controls['surname'].touched " class="form_validation g-font-size-10px">Surname is required!</span> 
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput type="phone" id="phone" formControlName="phone" placeholder="Phone">
+                <span *ngIf="stuffForm.controls['phone'].touched && stuffForm.controls['phone'].value ===''" class="form_validation g-font-size-10px">Phone is required!</span>
+                <span *ngIf="!stuffForm.controls['phone'].valid && stuffForm.controls['phone'].value" class="form_validation g-font-size-10px">Phone must has 10 numbers!</span>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Role</mat-label>
+                <input matInput type="text" id="role" formControlName="role" placeholder="Role">
+                <span *ngIf="!stuffForm.controls['role'].valid && stuffForm.controls['role'].touched " class="form_validation g-font-size-10px">Role is required!</span>  
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" id="email" formControlName="email" placeholder="Email"> 
+                <span *ngIf="stuffForm.controls['email'].touched && stuffForm.controls['email'].value ===''" class="form_validation g-font-size-10px">Email is required!</span> 
+                <span *ngIf="!stuffForm.controls['email'].valid && stuffForm.controls['email'].value" class="form_validation g-font-size-10px">Write valid email!</span>       
+            </mat-form-field>
+            <div>
+                <img [src]="url" width="80px" height="80px"><br><br>
+                <input type="file" (change)="selectFile($event)">
+              </div>
+              <br>
+            <div id="button_div" class="line_top">
+                <br>
+                <button mat-flat-button color="warn" class="m-1" (click)="closeDialogHint()">Close</button>              
+                <button mat-flat-button color="primary" class="m-1" type="submit"  [disabled]="!stuffForm.valid" (click)="addOrEdit()">Save</button>
+            </div>    
+        </form>
+    </div> 
+</div>
+
+

@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-sm-4 icon"></div>
+    <div class="col-sm-4 text-gym">
+        <div class="inline-div gym-icon">
+            <img src="../../assets/favicon.png" width="30px">
+        </div>
+        <div class="inline-div gym-heading">
+            <p>Fitness Gym Management System</p>
+        </div>
+    </div>
+    <div class="col-sm-4 avatar text-end">
+     <nav class="navbar navbar-expand-lg navbar-dark header_navbar my-0 mx-0 p-0">
+        <div class="container text-end">
+          <div class="inline-div"> 
+            <img src="../../assets/imgs/avatar-header.webp" width="30px">
+          </div> 
+          <div class="inline-div user2" *ngIf = "userData as user">
+               <p>{{user.displayName}}</p>
+          </div>
+          <ul class="navbar-nav ml-auto justify-content-end">       
+            <li class="nav-item" *ngIf="!_authService.isLoggedIn">
+               <a routerLink="/login" class="nav-link">
+                 Log In
+               </a>
+            </li>
+            <li class="nav-item" *ngIf="_authService.isLoggedIn" >
+               <a (click)="signout()" class="nav-link">
+                 Log Out
+               </a>
+            </li>
+          </ul>
+       </div>
+     </nav>
+   </div>
+</div>

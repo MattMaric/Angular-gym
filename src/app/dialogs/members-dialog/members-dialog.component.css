@@ -1,0 +1,17 @@
+.mat-blue {
+    background-color: rgb(59, 148, 236);
+    color: white;
+    margin-left: 5px;
+}
+#buttons-div {
+    text-align: end;
+    justify-content: end;
+}
+.example-full-width {
+    width: 100%;
+}
+.heading_h2{
+    font-weight: bolder;
+    border-bottom: 2px solid rgb(168, 59, 59);
+    width: 100%;
+}

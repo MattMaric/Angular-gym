@@ -1,0 +1,14 @@
+.mat-blue {
+    background-color: rgb(57, 142, 240);
+    color: white;
+    margin-left: 5px;
+}
+#buttons-div {
+    justify-content: end;
+    text-align: end;
+}
+.heading_h2{
+    font-weight: bolder;
+    border-bottom: 2px solid rgb(168, 59, 59);
+    width: 100%;
+}

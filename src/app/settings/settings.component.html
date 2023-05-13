@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <div class="container p-3">
+        <div id="settings-heading"><h1>Settings</h1></div>
+      <br>
+        <form [formGroup]="settingsForm" autocomplete="off">
+          <fieldset>
+      
+            <!-- Gym Name Field -->
+            <div class="mb-3 form-group">
+              <label for="name" class="form-label">Gym Name:</label>
+              <input type="text" id="name" class="form-control" formControlName="name" #gymName>
+              <span *ngIf="!settingsForm.controls['name'].valid && settingsForm.controls['name'].touched" style="color: red">
+                  Name must be filled.
+              </span>
+            </div>
+      
+            <!-- Establishment date Field -->
+            <div class="mb-3 form-group">
+              <label for="date" class="form-label">Establishment date:</label>
+              <input type="text" id="date" class="form-control" formControlName="date" readonly>
+            </div>
+      
+            <!-- Address Field -->
+            <div class="mb-3 form-group">
+              <label for="address" class="form-label">Address:</label>
+              <input type="text" id="address" class="form-control" formControlName="address">
+              <span *ngIf="!settingsForm.controls['address'].valid && settingsForm.controls['address'].touched" style="color: red">
+                  Address must be filled.
+              </span>
+            </div>
+  
+            <!-- Phone number Field -->
+            <div class="mb-3 form-group">
+              <label for="phoneNumber" class="form-label">Phone number:</label>
+              <input type="text" id="phoneNumber" class="form-control" minlength="6" maxlength="16" formControlName="phoneNumber">
+              <span *ngIf="settingsForm.controls['phoneNumber'].value === '' && settingsForm.controls['phoneNumber'].touched" style="color: red">
+                  Phone number must be filled.
+              </span>
+              <span *ngIf="!settingsForm.controls['phoneNumber'].valid && settingsForm.controls['phoneNumber'].value" style="color: red">
+                Phone number is not valid.
+            </span>
+            </div>
+      
+            <!-- Country Field -->
+            <div class="mb-3 form-group">
+              <label for="country" class="form-label">Country:</label>
+              <input type="text" id="country" class="form-control" formControlName="country">
+              <span *ngIf="!settingsForm.controls['country'].valid && settingsForm.controls['country'].touched" style="color: red">
+                  Country must be filled.
+              </span>
+            </div>
+      
+            <!-- Email Field -->
+            <div class="mb-3 form-group">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" id="email" class="form-control" formControlName="email">
+              <span *ngIf="settingsForm.controls['email'].value === '' && settingsForm.controls['email'].touched" style="color: red">
+                  Email must be filled.
+              </span>
+              <span *ngIf="!settingsForm.controls['email'].valid && settingsForm.controls['email'].value" style="color: red">
+                Email is not valid.
+              </span>
+            </div>
+
+            <!-- Copyright Field -->
+            <div class="mb-3 form-group">
+              <label for="copyright" class="form-label">Copyright:</label>
+              <input type="text" id="copyright" class="form-control" formControlName="copyright" #copyrightName>
+              <span *ngIf="!settingsForm.controls['copyright'].valid && settingsForm.controls['copyright'].touched" style="color: red">
+                Copyright must be filled.
+            </span>
+            </div>
+
+            <div id="button-div">
+              <button mat-flat-button color="blue" (click)="saveSettings(gymName.value, copyrightName.value)" 
+                [disabled]="!settingsForm.valid">Save</button>
+            </div>
+          </fieldset>
+      </form>
+    </div>
+</div>

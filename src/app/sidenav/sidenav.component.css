@@ -1,0 +1,101 @@
+.sidenav {
+    background:rgb(168, 59, 59);
+    transition: all .5s ease;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width: 70px;
+    min-height:100%;
+  
+}
+.fa-bars {
+    font-size: 20px;
+}
+.sidenav-nav{
+    list-style-type: none;
+    margin-top: 15px;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;   
+    cursor: pointer;
+} 
+.sidenav-nav-item {
+    margin-bottom: 0.625rem;
+    padding-left: 7px;
+    padding-right:7px;
+    padding-bottom: 20px;
+}
+.sidenav-collapsed{
+    width: 16.56rem;
+}
+.logo-container{
+    display: flex;
+    padding: 8px 8px 0 8px;
+    width:100%;
+}
+.logo {
+    background: lightgray;
+    text-align: center;
+    width: 48px;
+    min-width: 48px;
+    border-radius:4px ;
+    padding: 9px;
+    font-size:24px;
+    font-weight: 900;
+    cursor:pointer;
+    border:none;
+}
+.logo-text {
+    font-size: 24px;
+    padding-left: 20px;
+    padding-top:8px;    
+    font-weight: 700;
+    color:white;
+    text-shadow: 6px 2px 4px #000000;  
+}
+.sidenav .logo-container .btn-close{
+    margin-left: auto;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+}
+.fa-times{
+    color: white;
+    font-size:24px;        
+}
+.sidenav-nav-link{
+    display:flex;
+    align-items: center;
+    height: 45px;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: color .3s ease;
+}
+.sidenav-link-icon{
+    font-size: 22px;
+    width: 32px;
+    min-width: 32px;
+    margin: 0 8px;
+    text-align: center;        
+}
+.sidenav-link-text{
+    margin-left: 23px;
+}
+.sidenav-nav-link:hover {
+    background-color: white;
+    color: black;
+}
+.sidenav-link-icon,.sidenav-link-text {
+    color:black;
+}
+.nowrap_text{
+    white-space: nowrap 
+}
+.list_under{
+    list-style-type: none;
+    background-color: rgb(168, 59, 59);
+}
+ 

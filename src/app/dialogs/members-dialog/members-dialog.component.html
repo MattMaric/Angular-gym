@@ -1,0 +1,89 @@
+
+<h2 mat-dialog-title class="heading_h2">{{data.message}}</h2>
+
+<form [formGroup]="membersForm" autocomplete="off">
+    <fieldset>
+
+        <!-- Name input -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+            <span *ngIf="!membersForm.controls['name'].valid && membersForm.controls['name'].touched" style="color: red;">
+                Name must be filled.
+            </span>
+        </div>
+
+        <!-- Surname input -->
+        <div class="mb-3">
+            <label for="surname" class="form-label">Surame</label>
+            <input type="text" id="surname" class="form-control" formControlName="surname">
+            <span *ngIf="!membersForm.controls['surname'].valid && membersForm.controls['surname'].touched" style="color: red;">
+                Surname must be filled.
+            </span>
+        </div>
+
+        <!-- Number input -->
+        <div class="mb-3">
+            <label for="number" class="form-label">Phone Number</label>
+            <input type="text" id="number" minlength="6" maxlength="12" class="form-control" formControlName="number">
+            <span *ngIf="membersForm.controls['number'].value === '' && membersForm.controls['number'].touched" style="color: red;">
+                Phone number must be filled.
+            </span>
+            <span *ngIf="!membersForm.controls['number'].valid && membersForm.controls['number'].value" style="color: red;">
+                Phone number is not valid.
+            </span>
+        </div>
+
+        <!-- Email input -->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" formControlName="email">
+            <span *ngIf="membersForm.controls['email'].value === '' && membersForm.controls['email'].touched" style="color: red;">
+                Email must be filled.
+            </span>
+            <span *ngIf="!membersForm.controls['email'].valid && membersForm.controls['email'].value" style="color: red;">
+                Email is not valid.
+            </span>
+        </div>
+
+        <!-- Date input -->
+        <div class="mb-3">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+            </mat-form-field>
+            <span *ngIf="membersForm.controls['date'].value === '' && membersForm.controls['date'].touched" style="color: red;">
+                Date must be inserted.
+            </span>
+            <span *ngIf="!membersForm.controls['date'].valid && membersForm.controls['date'].touched 
+                && membersForm.controls['date'].value !== ''" style="color: red;">
+                Date is not valid.
+            </span>
+        </div>
+        
+        <!-- Membership Type input -->
+        <div class="mb-3">
+            <label for="type" class="form-label">Membership Type</label>
+            <select class="form-select" formControlName="type" id="type">
+                <option *ngFor="let name of names">{{name.name}}</option>
+            </select>
+            <span *ngIf="!membersForm.controls['type'].valid && membersForm.controls['type'].touched" style="color: red;">
+                Type must be choosen.
+            </span>
+        </div>
+
+        <!--IMAGE CHECK-->
+        <div>
+            <img src="{{url}}" width="80px" height="80px"><br><br>
+            <input type="file" (change)="selectFile($event)">
+        </div>
+
+        <div id="buttons-div">
+            <button mat-flat-button color="warn" (click)="closeDialog()">Close</button>
+            <button mat-flat-button color="blue" (click)="addMembers()" [disabled]="!membersForm.valid">Save</button>
+        </div>
+    </fieldset>
+</form>

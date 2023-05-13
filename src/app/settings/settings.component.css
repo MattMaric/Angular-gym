@@ -1,0 +1,51 @@
+.container-fluid {
+  background-color: rgb(226, 225, 225);
+  height: fit-content;
+  padding: 30px;
+  width: 100%;
+}
+.container {
+    background-color: white;
+    width: 100%;
+    min-height: fit-content;
+}
+label {
+    width: 150px;
+    text-align: right;
+    float: left;
+    margin-right: 10px;
+  }
+input {
+  width: 80%;
+}
+span {
+  margin-left: 162px;
+}
+.mat-blue {
+  background-color: rgb(57, 142, 240);
+  color: white;
+}
+#button-div {
+  text-align: center;
+}
+h1 {
+  font-size: 30px;
+}
+
+@media(max-width: 1067px) {
+  input {
+    width: 100%;
+    font-size: 13px;
+    height: 26px;
+  }
+  label {
+    float: none;
+    width: auto;
+  }
+   .container-fluid {
+    height: 100%;
+  } 
+  span {
+    margin-left: 2px;
+  }
+}

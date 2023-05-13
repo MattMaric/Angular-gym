@@ -1,0 +1,14 @@
+footer {
+    background-color: gray;
+    height: 50px;
+    clear: both;
+    margin: 0px;
+    font-size: 12px;
+    bottom: 0px;
+    position: fixed;
+    width: 100%;
+    color: rgb(168, 59, 59);
+    font-size: 14px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-bottom: 3px solid rgb(168, 59, 59);
+}

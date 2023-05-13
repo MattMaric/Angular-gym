@@ -1,0 +1,74 @@
+.row {
+    height: 60px;
+    background-color: gray;
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+    overflow: hidden;
+    border-top: 3px solid rgb(168, 59, 59);
+}
+.icon, .gym-heading {
+    padding-top: 5px;
+}
+.fa-bars {
+    font-size: 20px;
+}
+p {
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.inline-div {
+    display: inline;
+}
+.user2 {
+    margin-right: 20px;
+}
+.gym-heading {
+    margin-left: 15px;
+}
+.text-gym {
+    display: inline-flex;
+    text-align: center !important;
+    justify-content: center !important;
+    height: 50px;
+}
+.avatar {
+    text-align: right;
+    justify-content: end;
+}
+
+@media (max-width: 991px) {
+    .row {
+        padding: 0;
+        padding-left: 12%;
+    }
+    p {
+        font-size: 16px;
+    }
+    .gym-heading, .avatar {
+        padding: 5px;
+    }
+    .gym-icon {
+        padding-top: 5px;
+    }
+}
+@media (max-width: 767px) {
+    p {
+        display: none;
+    }
+}
+@media (max-width: 575px) {
+    .text-gym{
+        display: none;
+    }
+}
+@media (min-width: 576px) and (max-width: 991px) {
+    .gym-icon, .avatar {
+        padding-top: 10px;
+    }
+}
+.header_navbar{
+    padding-bottom: 15px;
+    color:white;  
+    display: inline-flex;
+}

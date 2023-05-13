@@ -1,0 +1,44 @@
+<div  class="container-fluid">
+  <div class="logIn_first_div">
+    <div class="container">
+        <br><br><br>
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4  col-sm-6 offset-sm-3  bg-light g-font-size-14px  p-3 " >         
+                      <h6 class="text-center pl-2 mat-display-1">Log In</h6>
+                    <div class="text-center">
+                      <img src="assets/favicon.png" alt="" class="img-fluid" style="width: 70px;height:70px">
+                    </div>                 
+                    <div class="row same_line pl-5">
+                    </div>
+                    <form id="signin_form" [formGroup]="signinForm" autocomplete="off">
+                        <div class ="row">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input matInput type="email" formControlName="email" placeholder="Email" #userEmail required>
+                                <span *ngIf="!signinForm.controls['email'].valid && signinForm.controls['email'].touched " class="form_validation g-font-size-10px">Email is required!</span>
+                                <span *ngIf="!signinForm.controls['email'].valid && signinForm.controls['email'].value" class="form_validation g-font-size-10px">Write valid email!</span>     
+                            </mat-form-field> 
+                            <mat-form-field appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input matInput type="password" formControlName="password" placeholder="Password" #userPassword required> 
+                                <span *ngIf="signinForm.controls['password'].touched && signinForm.controls['password'].value ===''" class="form_validation g-font-size-10px">Password is required!</span> 
+                                <span *ngIf="!signinForm.controls['password'].valid && signinForm.controls['password'].value" class="form_validation g-font-size-10px">Write minimum six characters!</span>       
+                            </mat-form-field>  
+                         </div>
+                         <div>
+                            <p><a class="nav-link logIn_a2" routerLink="#">Forgot password?</a></p>
+                         </div>
+                         <div>
+                            <button class="btn col-sm-12 text-center logIn_button btn-dark"  
+                             type="button" (click)="authService.SignIn(userEmail.value, userPassword.value); userEmail.value = ''; userPassword.value = ''">
+                             Log In</button>
+                         </div>
+                         <div class="col-sm-12 d-flex justify-content-center">
+                            <p  >New to this site?<a class="nav-link logIn_a1 pl-1 " routerLink="/signup">Sign up</a></p>
+                         </div>
+                    </form>
+                <div class="row"><br><br><br></div>          
+            </div>   
+        </div>
+    </div>
+</div>

@@ -1,0 +1,146 @@
+.container-fluid {
+  background-color:white ;
+  padding-top: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.container_back {
+  background-color:rgb(168, 59, 59);
+  border-radius: 3%;
+  width: 100%;
+  height: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;   
+}
+
+.container {
+  background-color:white;
+  min-height:fit-content;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+table {
+  overflow-x: auto !important;
+  width: 100% !important;
+  margin: auto;
+}
+
+td, th {
+  width: 20%;
+}
+
+mat-header-cell, mat-cell {
+  width: 20%;
+}
+
+.fa-trash, .fa-edit{
+  color: white;
+  justify-content: center;
+  text-align: center;
+}
+
+.mat-blue {
+  background-color: rgb(57, 142, 240);
+  margin-right: 5px;
+}
+
+.mat-grey {
+  background-color: rgb(226, 225, 225);
+}
+th {
+  font-weight: bold;
+  font-size: 16px;
+  background-color: white !important;
+}
+
+tr:nth-child(odd) {
+  background-color: rgb(226, 225, 225);
+}
+
+#head-div {
+  margin-bottom: 30px; 
+  width: 100%
+}
+
+#list-heading {
+  display: inline; 
+  font-size: 30px; 
+  font-weight: 500;
+}
+
+#floating-div {
+  float: right; 
+  display: inline;
+}
+
+mat-form-field {
+  width: 20% !important;
+  padding-right: 10px;
+}
+
+.mat-elevation-z8 {
+  max-width: 100%;
+  overflow-x: auto;
+  max-height: 500px;
+}
+
+img {
+  padding: 5px;
+}
+
+@media (max-width: 620px) {
+  #list-heading {
+    font-size: 26px !important;
+    font-weight: 500 !important;
+  }
+  #floating-div {
+    float: none !important;
+    display: block !important;
+  }
+  mat-form-field {
+    width: 40% !important;
+    padding-right: 10px;
+  }
+  th, td {
+    width: 100% !important;
+  }
+}
+@media (min-width: 621px) and (max-width: 1332px) {
+  .mat-elevation-z8 {
+    height: 350px !important;
+  }
+}
+@media (max-width: 855px) {
+  th {
+    display: none;
+  }
+  td {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  #buttons-div {
+    margin-bottom: 15px;
+  }
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+  button {
+    font-size: 20px;
+    margin: 5px;
+  }
+}
+
+
+

@@ -1,0 +1,80 @@
+<div class="container-fluid">
+  <div class="container_back">
+   <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 text-start">
+         <h1 class="font_weight_large">STAFF MEMBERS</h1>  
+        </div>
+         <hr>
+          <div class="col-md-12 col-sm-12">
+            <div class="row">
+             <div class="col-lg-6 col-sm-12 text-start">
+               <button mat-raised-button color= "basic" class="button_add_stuff m-2 font_size_14" (click)="openDialogAddForm()">
+               + Add staffs
+               </button>
+              </div>
+              <div class="col-lg-6 col-sm-12 text-end">
+              <mat-form-field fxFlax="40%" class="m-4" appearance="standard" class="font_size_14 width_filter"><mat-label class="font_size_14">Filter</mat-label><input matInput type="text" (keyup)="applyFilter($event)" placeholder="filter the initial word or number"></mat-form-field> 
+              </div>
+            </div>
+         </div>       
+    </div>
+<div class="mat-elevation-z8 m-1">
+    <table [dataSource]="dataSource" mat-table  class="table-condesed table_responsive" matSort >
+      <!-- Photo Column -->
+      <ng-container matColumnDef="photo">
+        <th mat-header-cell *matHeaderCellDef class="mat_tab_th p-2"> Photo </th>
+        <td mat-cell *matCellDef="let row" class="p-2" data-label="Photo"><img [src]="getSantizeUrl(row.photo)" alt="" class="img_dimension"> 
+        </td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name" class="mat_tab_th p-2"> Name </th>
+        <td mat-cell *matCellDef="let row" class="p-2" data-label="Name"> {{row.name}} </td>
+      </ng-container>
+      <!-- Surname Column -->
+      <ng-container matColumnDef="surname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by surname" class="mat_tab_th p-2"> Surname </th>
+        <td mat-cell *matCellDef="let row" class="p-2" data-label="Surname"> {{row.surname}} </td>
+      </ng-container>
+      <!-- Phone Column -->
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by phone" class="mat_tab_th p-2"> Phone </th>
+        <td mat-cell *matCellDef="let row" class="p-2" data-label="Phone"> {{row.phone}} </td>
+      </ng-container>
+      <!-- Role Column -->
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by role" class="mat_tab_th p-2" > Role </th>
+        <td mat-cell *matCellDef="let row" class="p-2" data-label="Role"> {{row.role}} </td> 
+      </ng-container>  
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by email" class="mat_tab_th p-2"> Email </th>
+        <td mat-cell *matCellDef="let row" class="p-2" data-label="Email"> {{row.email}} </td>
+      </ng-container> 
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="mat_tab_th p-3"> Action </th>
+        <div >
+        <td mat-cell *matCellDef="let row" class="p-3" data-label="Action" id="action_resp">
+          <button mat-flat-button color="primary" (click)="openDialogEditForm(row)" class="button_width m-1"><i class="fa fa-edit" ></i></button>
+          <button mat-flat-button color="warn" (click)="deleteStuff(row.id)" class="button_width m-1"><i class="fa fa-trash"></i></button>
+         </td>
+        </div>
+      </ng-container>  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+        <mat-paginator class="paginator_responsive"
+          [pageSizeOptions]="[5, 10, 20]"
+          [pageSize]="pageSize"
+          [length]="length"
+          showFirstLastButtons 
+          aria-label="Select page of stuff">
+        </mat-paginator>
+    </div>
+  </div>
+ </div>
+</div>  
+
+
